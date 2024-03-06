@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zgłaszanie błędów IT</title>
+    <style>
+        /* Stylizacja formularza */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+        select {
+            font-family: Arial, sans-serif;
+            width: 94%;
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        input[type="text"],
+        textarea {
+            width: 92.5%;
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        textarea {
+            height: 100px;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        text{
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<form action="/post" method="post">
+    <h2>Zgłaszanie błędów IT</h2>
+    <text>Imię i nazwisko</text>
+    <input type="text" id="name" name="name" placeholder="Imię i nazwisko" required><br>
+    <text>Imię i nazwisko</text>
+    <input type="text" id="email" name="email" placeholder="Adres email" required><br>
+
+    <text>Imię i nazwisko</text>
+    <select id="dzial" name="dzial">
+        <option>Zarząd</option>
+        <option>Księgowość</option>
+        <option>Sprzedaż</option>
+        <option>Przetargi</option>
+        <option>Magazyn</option>
+    </select><br>
+    <text>Imię i nazwisko</text>
+    <select id="priority" name="priority">
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+    </select><br>
+    <textarea id="issue" name="issue" placeholder="Opisz problem" required></textarea><br>
+    <input type="submit" value="Zgłoś problem">
+</form>
+
+</body>
+</html>
