@@ -1,0 +1,1 @@
+Podłączone pod MySQL
