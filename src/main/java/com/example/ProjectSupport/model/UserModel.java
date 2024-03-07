@@ -63,8 +63,8 @@ public class UserModel {
     @Override
     public String toString() {
         return "UserModel{" +
-                "id=" + id +
                 ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 '}';
     }
