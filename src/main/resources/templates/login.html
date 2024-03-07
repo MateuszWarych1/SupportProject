@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thyneleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,7 +29,7 @@
 
         input[type="text"],
         input[type="password"]{
-            width: 92.5%;
+            width: 93%;
             padding: 10px;
             margin-bottom: 10px;
             border: 1px solid #ccc;
@@ -54,18 +54,47 @@
         button:hover {
             background-color: #45a049;
         }
+
+        text{
+            color: black;
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+        }
+        div{
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px
+        }
     </style>
 </head>
 <body>
 <div class="login-container">
     <h2>Login</h2>
-    <form action="/login" method="post">
+    <form action="/login" method="post" th:object="${loginRequest}">
         <input type="text" name="username" placeholder="Username" required><br>
         <input type="password" name="password" placeholder="Password" required><br>
+        <a href="/report">
         <button type="submit">Login</button>
-        <a href="/registration">
-        <button type="submit">Registration</button>
         </a>
+        <div>
+            <div>
+        <a href="/registration">
+            <text>Lets register yourself</text>
+        </a>
+            </div>
+            <div>
+        <a href="/report">
+            <text>Go without login</text>
+        </a>
+            </div>
+            <div>
+        <a href="/index.html">
+            <text>Back to home page</text>
+        </a>
+            </div>
+        </div>
     </form>
 </div>
 </body>

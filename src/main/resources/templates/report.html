@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thyneleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,19 +55,16 @@
         }
         text{
             padding: 5px;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
         }
     </style>
 </head>
 <body>
 
 <form action="/post" method="post">
-    <h2>Zgłaszanie błędów IT</h2>
-    <text>Imię i nazwisko</text>
-    <input type="text" id="name" name="name" placeholder="Imię i nazwisko" required><br>
-    <text>Imię i nazwisko</text>
-    <input type="text" id="email" name="email" placeholder="Adres email" required><br>
-
-    <text>Imię i nazwisko</text>
+    <h2>Zgłaszanie błędów IT od <span th:text="${userLogin}"></span></h2>
+    <text>Dział</text>
     <select id="dzial" name="dzial">
         <option>Zarząd</option>
         <option>Księgowość</option>
@@ -75,11 +72,11 @@
         <option>Przetargi</option>
         <option>Magazyn</option>
     </select><br>
-    <text>Imię i nazwisko</text>
+    <text>Priorytet</text>
     <select id="priority" name="priority">
-        <option value="low">Low</option>
-        <option value="medium">Medium</option>
-        <option value="high">High</option>
+        <option value="low">Mało uciążliwe</option>
+        <option value="medium">Irytuje</option>
+        <option value="high">Praca niemoźliwa</option>
     </select><br>
     <textarea id="issue" name="issue" placeholder="Opisz problem" required></textarea><br>
     <input type="submit" value="Zgłoś problem">
