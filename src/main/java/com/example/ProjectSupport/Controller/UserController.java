@@ -25,6 +25,18 @@ public class UserController {
         return "login";
     }
 
+    @PostMapping("/login")
+    public String login(@ModelAttribute UserModel userModel, Model model){
+        System.out.println("login request: " + userModel);
+        UserModel authenticate = userService.authenticate(userModel.getLogin(), userModel.getPassword());
+        if (authenticate != null){
+            model.addAttribute("userLogin", authenticate.getLogin());
+            return "/report";
+        }else {
+            return "error_page";
+        }
+    }
+
     @GetMapping("/registration")
     public String getRegistration(Model model){
         model.addAttribute("registerRequest", new UserModel());
@@ -36,23 +48,6 @@ public class UserController {
         UserModel registerUser = userService.registerUser(userModel.getLogin(),
                 userModel.getPassword(), userModel.getEmail());
         return registerUser == null ? "error_page" : "redirect:/login";
-    }
-
-    @PostMapping("/login")
-    public String login(@ModelAttribute UserModel userModel, Model model){
-        System.out.println("login request: " + userModel);
-        UserModel authenticate = userService.authenticate(userModel.getLogin(), userModel.getPassword());
-        if (authenticate != null){
-            model.addAttribute("userLogin", authenticate.getLogin());
-            return "report";
-        }else {
-            return "error_page";
-        }
-    }
-
-    @GetMapping("/report")
-    public String report(){
-        return "report";
     }
 }
 

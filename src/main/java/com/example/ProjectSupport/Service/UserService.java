@@ -28,5 +28,4 @@ public class UserService {
     public UserModel authenticate(String login, String password){
         return userRepo.findByLoginAndPassword(login, password).orElse(null);
     }
-
 }

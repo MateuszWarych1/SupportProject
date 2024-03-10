@@ -23,13 +23,6 @@
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             width: 400px;
         }
-        select {
-            font-family: Arial, sans-serif;
-            width: 94%;
-            margin: 5px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-        }
         input[type="text"],
         textarea {
             width: 92.5%;
@@ -62,23 +55,10 @@
 </head>
 <body>
 
-<form action="/post" method="post">
+<form action="/report" method="post" th:object="${reportUser}">
     <h2>Zgłaszanie błędów IT od <span th:text="${userLogin}"></span></h2>
-    <text>Dział</text>
-    <select id="dzial" name="dzial">
-        <option>Zarząd</option>
-        <option>Księgowość</option>
-        <option>Sprzedaż</option>
-        <option>Przetargi</option>
-        <option>Magazyn</option>
-    </select><br>
-    <text>Priorytet</text>
-    <select id="priority" name="priority">
-        <option value="low">Mało uciążliwe</option>
-        <option value="medium">Irytuje</option>
-        <option value="high">Praca niemoźliwa</option>
-    </select><br>
-    <textarea id="issue" name="issue" placeholder="Opisz problem" required></textarea><br>
+    <input type="text" name="login" placeholder="Podaj login" required/>
+    <textarea id="report" name="report" placeholder="Opisz problem" required></textarea><br>
     <input type="submit" value="Zgłoś problem">
 </form>
 
